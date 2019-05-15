@@ -1,0 +1,12 @@
+server {
+         listen 80;
+         # 域名或者 IP 地址
+         server_name 192.168.99.43;
+         # 字符集设置
+         charset utf-8;
+         location / {
+             # 必须和 uwsgi.ini 中 socket 一样
+             uwsgi_pass 127.0.0.1:9090;
+             include /etc/nginx/uwsgi_params;
+         }
+     }
